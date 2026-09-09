@@ -1,0 +1,36 @@
+{
+  "name": "pi-retry",
+  "version": "0.1.0",
+  "description": "Best-effort manual /retry command for the Pi coding agent",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "pi",
+    "retry"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "author": "ZhiAo1120",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhiAo1120/pi-retry.git"
+  },
+  "homepage": "https://github.com/ZhiAo1120/pi-retry#readme",
+  "bugs": {
+    "url": "https://github.com/ZhiAo1120/pi-retry/issues"
+  },
+  "files": [
+    "index.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --experimental-strip-types test/manual-retry.test.mjs",
+    "check": "node --experimental-strip-types --input-type=module --eval \"import('./index.ts')\""
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
