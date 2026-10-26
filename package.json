@@ -9,6 +9,9 @@
     "retry"
   ],
   "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "license": "MIT",
   "author": "ZhiAo1120",
   "repository": {
@@ -21,16 +24,24 @@
   },
   "files": [
     "index.ts",
+    "sanitize.ts",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --experimental-strip-types test/manual-retry.test.mjs",
-    "check": "node --experimental-strip-types --input-type=module --eval \"import('./index.ts')\""
+    "test": "node --experimental-strip-types --test test/*.test.mjs",
+    "check": "tsc --noEmit --strict --target ES2022 --module NodeNext --allowImportingTsExtensions --skipLibCheck index.ts sanitize.ts"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
   },
   "pi": {
     "extensions": [
       "./index.ts"
     ]
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "1.0.0",
+    "typescript": "6.0.2"
   }
 }
