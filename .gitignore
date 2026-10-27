@@ -2,3 +2,5 @@ node_modules/
 *.tgz
 .local/agent-work/
 .pi-glla/
+.DS_Store
+.local/

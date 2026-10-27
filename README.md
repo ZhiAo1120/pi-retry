@@ -3,6 +3,25 @@
 A small Pi extension that adds a manual `/retry` command without rewinding the
 conversation or resubmitting the original user request.
 
+English | [中文](README.zh-CN.md)
+
+## Install them together
+
+This extension covers "how do I resume precisely when I decide to step in". If your
+upstream API is flaky and you want the **task to keep running on its own**, install
+[pi-resilient-retry](https://github.com/ZhiAo1120/pi-resilient-retry) alongside it:
+
+| | pi-retry (this) | pi-resilient-retry |
+|---|---|---|
+| Trigger | You type `/retry` | Automatic, retries on failure |
+| Job | Resume from the checkpoint without replaying finished work | Retry in the background so the task is not interrupted |
+| Budget | 3 failed requests, then it stops with a reason | Unlimited (configurable) |
+| History repair | `/retry` drops ids; `--deep` also drops reasoning | Drops ids only when the upstream reports the ids are dead |
+
+The lifecycle hooks do not conflict, so both can be installed. One keeps the task
+alive; the other makes your manual intervention precise. They complement rather than
+replace each other.
+
 ## Install
 
 Requires Node.js 22.19 or newer. Tested against Pi 1.0.0.

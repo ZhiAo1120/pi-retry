@@ -26,6 +26,7 @@
     "index.ts",
     "sanitize.ts",
     "README.md",
+    "README.zh-CN.md",
     "LICENSE"
   ],
   "scripts": {
