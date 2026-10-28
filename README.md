@@ -15,7 +15,7 @@ upstream API is flaky and you want the **task to keep running on its own**, inst
 |---|---|---|
 | Trigger | You type `/retry` | Automatic, retries on failure |
 | Job | Resume from the checkpoint without replaying finished work | Retry in the background so the task is not interrupted |
-| Budget | 3 failed requests, then it stops with a reason | Unlimited (configurable) |
+| Budget | 3 failed requests, then it stops with a reason | Unlimited, with a repeat guard |
 | History repair | `/retry` drops ids; `--deep` also drops reasoning | Drops ids only when the upstream reports the ids are dead |
 
 The lifecycle hooks do not conflict, so both can be installed. One keeps the task
